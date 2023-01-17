@@ -138,6 +138,15 @@ Write a function named reversedString that takes in a string and returns a strin
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
+//let newStr = '';
+//
+//const reversedString = (str) => {
+//  return str.split('').reduce((newStr, char) => {
+//    return char + newStr;
+// }, '');
+//};
+//
+//
 
 const reversedString = (str) => {
   // Solution code here...
