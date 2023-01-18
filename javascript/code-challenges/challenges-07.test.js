@@ -26,16 +26,7 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
-  starWarsArr.sort((a, b) => {
-    if (a.height > b.height) {
-      return 1;
-    }
-    if (a.height < b.height) {
-      return -1;
-    }
-  })
-  return starWarsArr;
-
+  return starWarsArr.sort((a, b) => b.height - a.height);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +42,6 @@ const removeThree = (idx, arr) => {
   return arr;
 };
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -61,6 +51,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 const joinArray = (arr) => {
   // Solution code here...
   return arr.join(' ');
+
 };
 
 /* ------------------------------------------------------------------------------------------------
