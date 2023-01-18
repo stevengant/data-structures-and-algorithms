@@ -26,16 +26,7 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
-  starWarsArr.sort((a, b) => {
-    if (a.height > b.height) {
-      return 1;
-    }
-    if (a.height < b.height) {
-      return -1;
-    }
-  })
-  return starWarsArr;
-
+  return starWarsArr.sort((a, b) => b.height - a.height);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,7 +41,6 @@ const removeThree = (idx, arr) => {
   console.log(removed);
   return arr;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
