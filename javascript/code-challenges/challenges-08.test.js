@@ -5,7 +5,10 @@
 CHALLENGE 1 - Review
 
 Write a function named sortByChildren that sorts the characters below by the number of children in each house (fewest to most). If a house has the same number of children, sort alphabetically by house name.
+! a.children.length < b.children.length (return -1)
+! a.children.length > b.children.length (return 1)
 
+! a.house b.house
 ------------------------------------------------------------------------------------------------ */
 let characters = [
   {
@@ -54,19 +57,28 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
-  return charArray.sort((a, b) => {
-    if(a.children.length === b.children.length) {
-      if(a.house > b.house) {
-        return 1;
-      }
-      if (a.house < b.house) {
+    return charArray.sort((a, b) => {
+      if(a.children.length < b.children.length) {
         return -1;
+      } else if(a.children.length > b.children.length) {
+        return 1;
+      } else {
+        return a.house > b.house ? 1 : -1;
       }
-    } else {
-      return(a.children.length - b.children.length);
-    }
+    });
+  // return charArray.sort((a, b) => {
+  //   if(a.children.length === b.children.length) {
+  //     if(a.house > b.house) {
+  //       return 1;
+  //     }
+  //     if (a.house < b.house) {
+  //       return -1;
+  //     }
+  //   } else {
+  //     return(a.children.length - b.children.length);
+  //   }
 
-  });
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,14 +136,15 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  const findCap = /[A-Z][a-z]*/g;
-  let caps = str.match(findCap);
-
-  if(caps) {
-    return caps;
-  } else {
-    return [];
-  }
+  let regex = /[A-Z][a-z]*/g;
+  return str.match(regex) || [];
+  // const findCap = /[A-Z][a-z]*/g;
+  // let caps = str.match(findCap);
+  // if(caps) {
+  //   return caps;
+  // } else {
+  //   return [];
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
