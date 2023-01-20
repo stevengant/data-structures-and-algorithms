@@ -10,10 +10,9 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-  let max = arr.reduce(function(a, b) {
-    return Math.max(a, b)
-  });
-  return max;
+  return arr.reduce((accumulator, currentVal) => {
+    return currentVal > accumulator ? currentVal : accumulator;
+  })
 
 };
 
@@ -46,10 +45,10 @@ Write a function named checkValues that takes in an object and a value and retur
 
 ------------------------------------------------------------------------------------------------ */
 
-const checkValues = (obj, value) => {
-  // Solution code here...
+const checkValues = (obj, value) => Object.values(obj).includes(value);
 
-};
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -72,8 +71,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
-  return Object.entries(obj).forEach(obj);
-
+  let newArr = [];
+  for(let [key, value] of Object.entries(obj)) {
+    newArr.push(`${key}: ${value}`);
+    return newArr;
+  }
 };
 
 
@@ -150,17 +152,19 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-  let hasChildren = false;
+  let hasChildren = 0;
 
-  arr.forEach(obj => {
-    if (obj.name === character) {
-      let values = Object.values(obj);
-      if (values[2].length) {
-        hasChildren = true;
-      }
+  arr.forEach(person => {
+    if(person.name === character) {
+      Object.keys(person).forEach((key, idx) => {
+        if(key === 'children') {
+          hasChildren = Object.values(person)[idx].length;
+        }
+      });
     }
   });
-  return hasChildren;
+
+  return hasChildren ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
