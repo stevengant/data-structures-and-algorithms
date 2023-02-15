@@ -23,5 +23,6 @@ To run your tests
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
 
 ### Table of Contents
-![array-reverse](/javascript/array-reverse)
-![array-insert-shift](/javascript/array-insert-shift)
+- [array-reverse](/javascript/array-reverse)
+- [array-insert-shift](/javascript/array-insert-shift)
+- [array-binary-search](/javascript/array-binary-search)
