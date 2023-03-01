@@ -150,6 +150,38 @@ class AnimalShelter {
 
 }
 
+function validateBrackets(str) {
+  let stack = new Stack();
+
+  for (let letter of str) {
+    if (letter === '(' || letter === '[' || letter === '{') {
+      stack.push(letter);
+    }
+    if (letter === ')') {
+      let temp = stack.pop();
+      if (temp !== '(') {
+        return false;
+      }
+    }
+    if (letter === ']') {
+      let temp = stack.pop();
+      if (temp !== '[') {
+        return false;
+      }
+    }
+    if (letter === '}') {
+      let temp = stack.pop();
+      if (temp !== '{') {
+        return false;
+      }
+    }
+  }
+  if(stack.top !== null){
+    return false;
+  }
+  return true;
+}
+
 let q = new Queue();
 q.enqueue(1);
 q.enqueue(2);
@@ -165,6 +197,6 @@ q.dequeue();
 console.log('three node removed',JSON.stringify(q));
 
 
-module.exports = { Stack, Queue, AnimalShelter };
+module.exports = { Stack, Queue, AnimalShelter, validateBrackets };
 
 
