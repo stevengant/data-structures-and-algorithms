@@ -50,3 +50,5 @@ Big O:
   time: O(1)
   space: O(1)
 
+## UML
+![](assets/CodeChallenge12-whiteboard.png)

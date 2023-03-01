@@ -2,7 +2,7 @@
 
 // equivalent imports
 // const { Stack, Queue } = require('./index.js');
-const { Stack, Queue } = require('./');
+const { Stack, Queue, AnimalShelter } = require('./');
 
 describe('Stack', () => {
   it('Can successfully push onto a stack', () => {
@@ -149,4 +149,27 @@ describe('Queue', () => {
     
   });
 
+  it('Can add animals to correct queue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('Max', 'dog');
+    shelter.enqueue('Jinx', 'cat');
+    shelter.enqueue('Wolfie', 'dog');
+    shelter.enqueue('kitty', 'cat');
+
+    expect(shelter.dogs.front.name).toEqual('Max');
+    expect(shelter.cats.front.name).toEqual('Jinx');
+  });
+
+  it('Can remove animals from queue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('Max', 'dog');
+    shelter.enqueue('Jinx', 'cat');
+    shelter.enqueue('Wolfie', 'dog');
+    shelter.enqueue('kitty', 'cat');
+
+    shelter.dequeue('dog');
+
+    expect(shelter.dogs.front.name).toEqual('Wolfie');
+    expect(shelter.cats.front.name).toEqual('Jinx');
+  });
 });

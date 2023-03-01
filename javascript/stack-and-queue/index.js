@@ -93,6 +93,63 @@ class Queue {
 
 }
 
+class Animal {
+  constructor(name, species, next = null) {
+    this.name = name;
+    this.species = species;
+    this.next = next;
+  }
+}
+
+class AnimalShelter {
+  constructor() {
+    this.cats = new Queue();
+    this.dogs = new Queue();
+  }
+  enqueue(name, species) {
+    let newAnimal = new Animal(name, species);
+    if (species === 'cat') {
+      if (!this.cats.front) {
+        this.cats.front = newAnimal;
+        this.cats.back = newAnimal;
+      } else {
+        this.cats.back.next = newAnimal;
+        this.cats.back = newAnimal;
+      }
+    }
+    if (species === 'dog') {
+      if (!this.dogs.front) {
+        this.dogs.front = newAnimal;
+        this.dogs.back = newAnimal;
+      } else {
+        this.dogs.back.next = newAnimal;
+        this.dogs.back = newAnimal;
+      }
+    }
+  }
+
+  dequeue(species) {
+    if (species === 'cat') {
+      if (!this.cats.front) {
+        return null;
+      }
+      let temp = this.cats.front;
+      this.cats.front = this.cats.front.next;
+      return temp;
+    }
+    if (species === 'dog') {
+      if (!this.dogs.front) {
+        return null;
+      }
+      let temp = this.dogs.front;
+      this.dogs.front = this.dogs.front.next;
+      return temp;
+    }
+    return null;
+  }
+
+}
+
 let q = new Queue();
 q.enqueue(1);
 q.enqueue(2);
@@ -108,6 +165,6 @@ q.dequeue();
 console.log('three node removed',JSON.stringify(q));
 
 
-module.exports = { Stack, Queue }
+module.exports = { Stack, Queue, AnimalShelter };
 
 
