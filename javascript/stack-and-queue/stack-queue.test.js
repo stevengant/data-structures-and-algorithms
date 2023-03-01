@@ -2,7 +2,7 @@
 
 // equivalent imports
 // const { Stack, Queue } = require('./index.js');
-const { Stack, Queue, AnimalShelter } = require('./');
+const { Stack, Queue, AnimalShelter, validateBrackets } = require('./');
 
 describe('Stack', () => {
   it('Can successfully push onto a stack', () => {
@@ -172,4 +172,15 @@ describe('Queue', () => {
     expect(shelter.dogs.front.name).toEqual('Wolfie');
     expect(shelter.cats.front.name).toEqual('Jinx');
   });
+
+  it('Can validate brackets', () => {
+    let str = '(){}[]';
+    let str2 = '(())[]';
+    let str3 = '(()';
+
+    expect(validateBrackets(str)).toBeTruthy();
+    expect(validateBrackets(str2)).toBeTruthy();
+    expect(validateBrackets(str3)).toBeFalsy();
+  });
+  
 });
