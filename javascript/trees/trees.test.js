@@ -72,4 +72,18 @@ describe('BinarySearchTree', () => {
 
   });
 
+  
+  it('fizzbuzz tree', () => {
+    let tree = new BinaryTree();
+    tree.add(10);
+    tree.add(5);
+    tree.add(15);
+    tree.add(1);
+    tree.add(8);
+
+    let newTree = tree.fizzBuzzTree(tree);
+    expect(newTree).toEqual(['Buzz','Buzz','FizzBuzz','1','8']);
+  
+
+  });
 });
