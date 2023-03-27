@@ -37,3 +37,6 @@ BigO for space is O(n)
 
 - How do you run tests?
 npm test hashTable.test
+
+## UML
+![Whiteboard](../../assets/codechallenge31.png)
