@@ -40,5 +40,5 @@ npm test hashTable.test
 
 ## UML
 
-![Whiteboard](../assets/codechallenge31.png)
+![Whiteboard](../hashtable/assets/codechallenge31.png)
 
