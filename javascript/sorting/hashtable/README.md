@@ -39,4 +39,4 @@ BigO for space is O(n)
 npm test hashTable.test
 
 ## UML
-![Whiteboard](../../assets/codechallenge31.png)
+![Whiteboard](../assets/codechallenge31.png)
