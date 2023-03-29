@@ -106,22 +106,17 @@ function repeatedWord(str) {
   return null;
 }
 
-module.exports = { HashTable, repeatedWord };
+function leftJoin(leftTable, rightTable) {
+  let result = [];
 
-// const table = new HashTable(1024);
+  for(let key of leftTable.keys()) {
+    let val1 = leftTable.get(key);
+    let val2 = rightTable.get(key) || null;
+    result.push([key, val1, val2]);
 
-// const hashOne = table.hash('Ryan');
-// const hashTwo = table.hash('Marco');
-// const hashThree = table.hash('Mike');
+  }
 
-// console.log('hashOne:', hashOne);
-// console.log('hashTwo:', hashTwo);
-// console.log('hashThree:', hashThree);
+  return result;
+}
 
-// table.set('Ryan', 'he/him');
-// table.set('Marco', 'he/him');
-// table.set('Mike', 'he/him');
-// console.log(table);
-// console.log(table.get('Ryan'));
-// console.log('has: ', table.has('Ryan'));
-// console.log('has: ', table.has('Steve'));
+module.exports = { HashTable, repeatedWord, leftJoin };

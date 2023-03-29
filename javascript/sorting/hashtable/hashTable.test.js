@@ -1,5 +1,5 @@
 'use strict';
-const { HashTable, repeatedWord } = require('./hashtable');
+const { HashTable, repeatedWord, leftJoin } = require('./hashtable');
 
 const tableSize = 1024;
 const table = new HashTable(tableSize);
@@ -60,5 +60,48 @@ describe('HashTable', () => {
 
     expect(repeatedWord('This is my friend, Null')).toEqual(null);
 
-  })
+  });
+  it('returns a new data structure with the synonym and antonym matched to their key', () => {
+
+    const table1 = new HashTable(tableSize);
+    const table2 = new HashTable(tableSize);
+
+    table1.set('diligent', 'employed');
+    table1.set('fond', 'enamored');
+    table1.set('guide', 'usher');
+    table1.set('outfit', 'garb');
+    table1.set('wrath', 'anger');
+    table2.set('diligent', 'idle');
+    table2.set('fond', 'averse');
+    table2.set('guide', 'follow');
+    table2.set('flow', 'jam');
+    table2.set('wrath', 'delight');
+
+    expect(leftJoin(table1, table2)).toEqual([[
+      'diligent',
+      'employed',
+      'idle',
+    ],
+    [
+      'outfit',
+      'garb',
+      null,
+    ],
+    [
+      'fond',
+      'enamored',
+      'averse',
+    ],
+    [
+      'guide',
+      'usher',
+      'follow',
+    ],
+    [
+      'wrath',
+      'anger',
+      'delight',
+    ],]);
+
+  });
 });
