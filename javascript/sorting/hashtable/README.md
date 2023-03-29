@@ -1,4 +1,4 @@
-# Code Challenge - Class 30
+# Code Challenge - Class 30, 33
 
 ## Hash Tables
 
@@ -42,3 +42,16 @@ npm test hashTable.test
 
 ![Whiteboard](../hashtable/assets/codechallenge31.png)
 
+## Code Challenge 33
+
+### hashmap-left-join
+
+- Write a function that LEFT JOINs two hashmaps into a single data structure.
+
+  - Write a function called left join
+  - Arguments: two hash maps
+    - The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+    - The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+  - Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the `LEFT JOIN` logic
+
+![CodeChallenge33 Whiteboard](../hashtable/assets/CodeChallenge33.png)
