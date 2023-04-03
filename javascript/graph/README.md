@@ -8,6 +8,9 @@
 
 Implement your own Graph. The graph should be represented as an adjacency list, and should include the methods listed in *Features / Routes*
 
+*Breadth First*
+Implement a breadth-first traversal on a graph.
+
 ### Links and Resources
 
 - [GitHub Repo](https://github.com/stevengant/data-structures-and-algorithms/tree/main/javascript/graph)
@@ -41,10 +44,15 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
   - Returns the total number of nodes in the graph
   - 0 if there are none
 
+- breadth first
+    - Arguments: Node
+    - Return: A collection of nodes in the order they were visited.
+    - Display the collection
+
 #### Tests
 
 - How do you run tests?
   - `npm test graph.test`
 
-- Describe any tests that you did not complete, skipped, etc
-  - Can't seem to get anything to pass
+### Code Challenge 36 UML
+![CodeChallenge36UML](./assets/CodeChallenge36.png)
