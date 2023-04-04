@@ -54,7 +54,7 @@ class BinaryTree {
       }
     }
   }
- 
+
   fizzBuzzTree(tree) {
     let newTree = new BinaryTree();
     let current = tree.root;
@@ -139,8 +139,7 @@ class BinaryTree {
     return results;
   }
 
-  getMax()
-  {
+  getMax() {
     let maxVal = this.root.value;
 
     const traverse = (node) => {
@@ -148,8 +147,7 @@ class BinaryTree {
       if (node.left) traverse(node.left);
 
       // base case
-      if(node.value > maxVal)
-      {
+      if (node.value > maxVal) {
         maxVal = node.value;
       }
 
@@ -163,27 +161,60 @@ class BinaryTree {
     return maxVal;
   }
 
+  traverse = (root) => {
+    let list = [];
+    let queue = [root];
+
+    while (queue.length) {
+
+      let curr = queue.shift();
+
+      list.push(curr.value);
+      if (curr.left) queue.push(curr.left);
+      if (curr.right) queue.push(curr.right);
+
+    }
+
+    return list
+
+  }
+
+  invert = function (root) {
+    if (root === null) return
+    let temp;
+
+    invert(root.left);
+    invert(root.right);
+
+    temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    return root
+
+  }
+
 }
 
-class BinarySearchTree
-{
+
+
+class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
-  add(value)
-  {
+  add(value) {
     const addNode = (node, newNode) => {
-      if(newNode.value < node.value){
-        if(node.left === null){
+      if (newNode.value < node.value) {
+        if (node.left === null) {
           node.left = newNode;
         }
-        else{
+        else {
           addNode(node.left, newNode);
         }
       }
-      else{
-        if(node.right === null){
+      else {
+        if (node.right === null) {
           node.right = newNode;
         }
         else {
@@ -194,28 +225,26 @@ class BinarySearchTree
 
     let newNode = new Node(value);
 
-    if(this.root === null)
-    {
+    if (this.root === null) {
       this.root = newNode;
     }
-    else
-    {
+    else {
       addNode(this.root, newNode);
     }
 
   }
 
-  contains(value, node = this.root){
-    if(node === null){
+  contains(value, node = this.root) {
+    if (node === null) {
       return null;
     }
-    else if(value < node.value){
+    else if (value < node.value) {
       return this.contains(value, node.left);
     }
-    else if (value > node.value){
+    else if (value > node.value) {
       return this.contains(value, node.right);
     }
-    else if(value === node.value) {
+    else if (value === node.value) {
       return true;
     }
     else {
